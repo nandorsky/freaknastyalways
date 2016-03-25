@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  root "pages#home"
+  devise_for :users
   resources :articles do
     resources :comments
   end
-  root "pages#home"
-  devise_for :users
+  
+  
 
   get "about" => "pages#about"
 

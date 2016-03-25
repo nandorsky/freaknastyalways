@@ -1,51 +1,69 @@
-
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
-
-<p>
-  <strong>URL:</strong>
-  <a href="<%= @article.url %>" target="blank"><%= @article.title %></a>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @article.description %>
-</p>
-
-<p>
-  <strong>Type of article:</strong>
-  <%= @article.type_of_article %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @article.user_id %>
-</p>
-
-<h2>Add a Comment:</h2>
-<% if user_signed_in? %>
-  <%= form_for([@article, @article.comments.build]) do |f| %>
-    <p>
-      <%= f.label :user_id %><br>
-      <%= f.text_field :user_id %>
-    </p>
-    <p>
-      <%= f.label :comment %><br>
-      <%= f.text_area :comment %>
-    </p>
-    <p>
-      <%= f.submit "Submit Comment" %>
-    </p>
-  <% end %>
-<% else %>
-You must first register to post a comment %>
-<% end %>
-
-<h2>Comments</h2>
-<%= @article.comments.count %> Comments
-<%= render @article.comments %>
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>
+
+<div class="row">
+
+            <!-- Blog Post Content Column -->
+            <div class="col-lg-12">
+
+                <!-- Blog Post -->
+
+                <!-- Title -->
+                <h1><%= @article.title %></h1>
+                <p> <a href="<%= @article.url %>" style="font-size:16px;"><%= @article.url %></a></p>
+
+                <!-- Description -->
+                <p class="lead"><%= @article.description %></p>
+
+                <hr>
+
+                <!-- Date/Time -->
+                <p> 
+                  <a href="#"><span class="glyphicon glyphicon-arrow-up"></span> 3</a> |
+                 <span class="glyphicon glyphicon-fire"></span> 
+                  <%= @article.comments.count %> |
+                  <span class="glyphicon glyphicon-user"></span>
+                  Username |
+                  <span class="glyphicon glyphicon-time"></span> 
+                  <%= time_ago_in_words(@article.created_at) %> ago
+                </p>
+
+                <hr>
+
+                
+                <!-- Blog Comments -->
+
+                <!-- Comments Form -->
+                
+                
+                <div class="well">
+                  <h4>Leave a Comment:</h4>
+                    <%= form_for([@article, @article.comments.build]) do |f| %>
+                      <div class="form-group">
+                        <%= f.label :comment %><br>
+                        <%= f.text_area :comment, :rows => 6,:class => "form-control" %>
+                      </div>
+                      <% if user_signed_in? %>
+                        <%= f.submit "Submit Comment", :class => "btn btn-primary", data: { disable_with: "Submitting comment..." } %>
+                      <% else %>
+                      You must be logged in to leave a comment. To sign up or sign in <a href="#">click here</a>. 
+                      <% end %>
+                    <% end %>
+                  </div>
+
+
+                <hr>
+
+                <!-- Posted Comments -->
+
+                <!-- Comment -->
+                <h3><%= @article.comments.count %> Comments</h3>
+                <% if @article.comments.count != 0 %>
+                  <%= render @article.comments %>
+                <% else %>
+                  No comments yet...
+                <% end %>
+              
+            </div>
+
+
+            </div>

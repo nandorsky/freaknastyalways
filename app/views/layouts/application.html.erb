@@ -3,31 +3,31 @@
 <head>
   <title>Freak Nasty Always</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <!-- Bootstrap core CSS -->
-  <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-  <link href="http://getbootstrap.com/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="starter-template.css" rel="stylesheet">
   <%= csrf_meta_tags %>
+
+  <!-- Bootstrap Templates -->
+  <link href="http://blackrockdigital.github.io/startbootstrap-blog-home/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="http://blackrockdigital.github.io/startbootstrap-blog-home/css/blog-home.css" rel="stylesheet">
+
 </head>
 <body>
 
 <%= render 'layouts/header' %>
-<div class="container" style="margin-top:40px;">
-	<% flash.each do |name, msg| %>
+<div class="container" >
+	
+  <% flash.each do |name, msg| %>
     	 <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
   <% end %>
 
 	<%= yield %>	   
-
+  <%= render 'layouts/footer' %>
 </div>
 
-<%= render 'layouts/footer' %>
+
  	<!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
