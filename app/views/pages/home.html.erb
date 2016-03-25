@@ -1,34 +1,35 @@
-<h1>Freak Nasty Friday</h1>
-<%= link_to 'New Article', new_article_path %>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Url</th>
-      <th>Description</th>
-      <th>Type of article</th>
-      <th>User</th>
-      <th colspan="3"></th>
-      <th>Comment Count</th>
-    </tr>
-  </thead>
+    <div class="jumbotron">
+        <h1>Freak Nasty Friday</h1>
+        <p>This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
+        <p>
+          <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
+          <%= link_to 'New Article', new_article_path %>
+        </p>
+      </div>
 
-  <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><a href="<%= article.url %>" target="blank"><%= article.title %></a></td>
-        <td><%= article.url %></td>
-        <td><%= article.description %></td>
-        <td><%= article.type_of_article %></td>
-        <td><%= article.user_id %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= Comment.where(:article_id => article ).count %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class="row">
+      <div class="col-md-9">
+        <% @articles.each do |article| %>
+            <div class="col-md-12">
+              <h2><a href="<%= article.url %>" target="blank"><%= article.title %></a> <%= Comment.where(:article_id => article ).count %> by <%= article.user_id %></h2>
+              <p><%= article.description %></p>
+              <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            <hr>
+            </div>
 
-<br>
+        <% end %>
+      </div>
+             <div class="col-md-3 well">
+              <h2>About</h2>
+              <p>about fnf here</p>
+            </div>
+
+   </div><!--/row-->
+
+
+
+
+
 
 
 

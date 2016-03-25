@@ -43,7 +43,8 @@
 You must first register to post a comment %>
 <% end %>
 
-<h2>List Comments</h2>
+<h2>Comments</h2>
+<%= @article.comments.count %> Comments
 <%= render @article.comments %>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
