@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
   def create
     @article = Article.find(params[:article_id])
     @comment = @article.comments.create(comment_params)
-    redirect_to article_path(@article)
+    redirect_to article_path(@article), notice: 'Bingo! Your comment was successfully posted!'
   end
 
   # PATCH/PUT /comments/1
