@@ -1,9 +1,11 @@
-<% if user_signed_in? %>
-          # do something
+		<%= link_to "Home", root_path %>
+		<%= link_to "About", about_path %>
+	<% if user_signed_in? %>
+          Link to my account page
+         
      <% else %>
        <p>
          <%= link_to "Log in", new_user_session_path %>
          <%= link_to "Sign up", new_user_registration_path %>
        </p>
-  <% end %>  
-  		<%= link_to "Posts", articles_path %>
+  	<% end %>  

@@ -1,2 +1,36 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Freak Nasty Friday</h1>
+<%= link_to 'New Article', new_article_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Url</th>
+      <th>Description</th>
+      <th>Type of article</th>
+      <th>User</th>
+      <th colspan="3"></th>
+      <th>Comment Count</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td><a href="<%= article.url %>" target="blank"><%= article.title %></a></td>
+        <td><%= article.url %></td>
+        <td><%= article.description %></td>
+        <td><%= article.type_of_article %></td>
+        <td><%= article.user_id %></td>
+        <td><%= link_to 'Show', article %></td>
+        <td><%= Comment.where(:article_id => article ).count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+
+
