@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = current_user.posts.build
+    @post = current_user.posts.build 
   end
 
   # GET /posts/1/edit
@@ -25,6 +25,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = current_user.posts.build(post_params)
+    @new_comment = current_user.comments.build(comment_params)
     if @post.save
       redirect_to @post, notice: 'Post was successfully created.'
     else
@@ -59,6 +60,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :url, :description, :type_of_post, :user_id)
+      params.require(:post).permit(:title, :url, :description, :type_of_post, :user_id, :post_id)
     end
 end
