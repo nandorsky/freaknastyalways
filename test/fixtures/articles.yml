@@ -3,11 +3,13 @@
 one:
   title: MyString
   url: MyString
-  description: MyString
-  type: 1
+  description: MyText
+  type_of_article: MyString
+  user_id: MyString
 
 two:
   title: MyString
   url: MyString
-  description: MyString
-  type: 1
+  description: MyText
+  type_of_article: MyString
+  user_id: MyString

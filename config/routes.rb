@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :posts
+  resources :articles do
+    resources :comments
+  end
   root "pages#home"
   devise_for :users
 

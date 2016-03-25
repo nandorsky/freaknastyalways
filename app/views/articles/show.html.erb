@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @article.url %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @article.description %>
+</p>
+
+<p>
+  <strong>Type of article:</strong>
+  <%= @article.type_of_article %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @article.user_id %>
+</p>
+
+<h2>Add a Comment:</h2>
+<%= form_for([@article, @article.comments.build]) do |f| %>
+  <p>
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :comment %><br>
+    <%= f.text_area :comment %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<h2>List Comments</h2>
+<%= render @article.comments %>
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>

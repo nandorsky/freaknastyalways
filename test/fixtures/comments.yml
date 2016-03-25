@@ -2,6 +2,10 @@
 
 one:
   comment: MyText
+  user_id: 1
+  article_id: 
 
 two:
   comment: MyText
+  user_id: 1
+  article_id: 
