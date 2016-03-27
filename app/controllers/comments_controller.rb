@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
-    @comment = Comment.new
+    @comment = current_user.comments.build
   end
 
   # GET /comments/1/edit
@@ -26,6 +26,7 @@ class CommentsController < ApplicationController
   def create
     @article = Article.find(params[:article_id])
     @comment = @article.comments.create(comment_params)
+    @comment.user_id = current_user.id
     redirect_to article_path(@article), notice: 'Bingo! Your comment was successfully posted!'
   end
 

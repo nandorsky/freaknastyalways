@@ -5,7 +5,7 @@
 
                 <h1 class="page-header" style="text-align:center; font-size:40px;">
                     Freak Nasty Always<br>
-                    <small>Secondary Text</small>
+                    <small><%= link_to 'New Article', new_article_path %><small>
                 </h1>
             </div>
 
@@ -23,7 +23,9 @@
                  <a href="#"><span class="glyphicon glyphicon-arrow-up"></span> 3</a> |
                  <a href="#"><span class="glyphicon glyphicon-pencil"></span> 
                   <%= Comment.where(:article_id => article ).count %></a> |
-                  <span class="glyphicon glyphicon-user"></span>
+                  <span class="glyphicon glyphicon-user">
+                    <img class="media-object img-circle" style="height:20px; float:left;" src="https://scontent-mia1-1.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/12573207_10205310443260307_8509741902091567578_n.jpg?oh=2c9794a671f818430342dba332e1f6f5&oe=5774B398" alt="">
+                  </span>
                   Username |
                   <span class="glyphicon glyphicon-time"></span> 
                   <%= time_ago_in_words(article.created_at) %> ago

@@ -1,4 +1,4 @@
-<%= link_to 'Back', articles_path %>
+<%= link_to '<-- Back', articles_path %>
 
 <div class="row">
 
@@ -22,46 +22,44 @@
                  <span class="glyphicon glyphicon-fire"></span> 
                   <%= @article.comments.count %> |
                   <span class="glyphicon glyphicon-user"></span>
-                  Username |
+                  <%= @article.user.email %> |
                   <span class="glyphicon glyphicon-time"></span> 
                   <%= time_ago_in_words(@article.created_at) %> ago
                 </p>
 
                 <hr>
 
-                
-                <!-- Blog Comments -->
+                <!-- Posted Comments -->
 
-                <!-- Comments Form -->
+                <!-- Comment -->
+                <% if @article.comments.count != 0 %>
+                <h3><%= @article.comments.count %> Comments</h3>
+                  <%= render @article.comments %>
+                <% else %>
+                  <h3>No comments yet...</h3>
+                <% end %>
+
+                <!-- Comments Form Start -->
                 
-                
+                <hr>
+
                 <div class="well">
                   <h4>Leave a Comment:</h4>
                     <%= form_for([@article, @article.comments.build]) do |f| %>
                       <div class="form-group">
-                        <%= f.label :comment %><br>
+                        <%= f.label :comment, :class => "hidden" %><br>
                         <%= f.text_area :comment, :rows => 6,:class => "form-control" %>
                       </div>
                       <% if user_signed_in? %>
                         <%= f.submit "Submit Comment", :class => "btn btn-primary", data: { disable_with: "Submitting comment..." } %>
                       <% else %>
-                      You must be logged in to leave a comment. To sign up or sign in <a href="#">click here</a>. 
+                      You must be logged in to leave a comment. <%= link_to "Click here", new_user_session_path %> to sign in or <%= link_to "click here", new_user_registration_path %> to sign up.
                       <% end %>
                     <% end %>
                   </div>
 
-
                 <hr>
-
-                <!-- Posted Comments -->
-
-                <!-- Comment -->
-                <h3><%= @article.comments.count %> Comments</h3>
-                <% if @article.comments.count != 0 %>
-                  <%= render @article.comments %>
-                <% else %>
-                  No comments yet...
-                <% end %>
+                <!-- Comments Form End -->
               
             </div>
 

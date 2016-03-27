@@ -14,7 +14,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-    @article = Article.new
+    @article = current_user.articles.build
   end
 
   # GET /articles/1/edit
@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @article = Article.new(article_params)
+    @article = current_user.articless.build(article_params)
     if @article.save
       redirect_to @article, notice: 'Booya! Your article was successfully submitted.'
     else
