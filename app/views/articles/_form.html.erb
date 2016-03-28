@@ -23,10 +23,15 @@
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
-  <div class="field">
-    <%= f.label :type_of_article %><br>
-    <%= f.text_field :type_of_article %>
+   <div class="field">
+    <%= f.label :type_of_article %><br />
+    <%= f.label :type_of_article, "Article" %>
+    <%= f.radio_button :type_of_article,  "article" %>
+    <%= f.label :type_of_article, "Question for Discussion" %>
+    <%= f.radio_button :type_of_article, "quesiton" %>
+    
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
