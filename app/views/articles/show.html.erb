@@ -9,7 +9,7 @@
 
                 <!-- Title -->
                 <h1><%= @article.title %></h1>
-                <% if @article.type_of_article = "question" %>
+                <% if @article.type_of_article == "question" %>
                   Question for Discussion
                 <% else %>
                   Article
