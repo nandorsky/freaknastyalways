@@ -1,5 +1,8 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
+
 
   # GET /articles
   # GET /articles.json
@@ -24,7 +27,7 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @article = current_user.articless.build(article_params)
+    @article = current_user.articles.build(article_params)
     if @article.save
       redirect_to @article, notice: 'Booya! Your article was successfully submitted.'
     else
