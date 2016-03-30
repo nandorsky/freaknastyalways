@@ -24,7 +24,8 @@ a {
 	background-color:transparent
 }
 a:active,a:hover {
-	outline:0
+	outline:0;
+	 text-decoration: none;
 }
 abbr[title] {
 	border-bottom:1px dotted
@@ -1146,7 +1147,8 @@ hr {
 	font-size:12px
 }
 p {
-	margin:0 0 10px
+	margin:0 0 10px;
+	font-size:14px;
 }
 .lead {
 	margin-bottom:20px;
