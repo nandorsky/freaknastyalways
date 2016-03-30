@@ -8,12 +8,13 @@
                 <!-- Blog Post -->
 
                 <!-- Title -->
-                <h1><%= @article.title %></h1>
+                <h1><%= @article.title %>
                 <% if @article.type_of_article == "question" %>
-                  Question for discussion
+                  <i class="fa fa-question-circle"></i> 
                 <% else %>
-                  Article Submission
+                  <i class="fa fa-newspaper-o"></i> 
                 <% end %> 
+                </h1>
                 <p> <a href="<%= @article.url %>" style="font-size:16px;"><%= @article.url %></a></p>
 
                 <!-- Description -->
@@ -24,7 +25,7 @@
                 <!-- Date/Time -->
                 <p> 
                   <a href="#"><span class="glyphicon glyphicon-arrow-up"></span> 3</a> |
-                 <span class="glyphicon glyphicon-fire"></span> 
+                 <i class="fa fa-comments"></i>  
                   <%= @article.comments.count %> |
                   <span class="glyphicon glyphicon-user"></span>
                   <%= @article.user.email %> |
@@ -38,7 +39,7 @@
 
                 <!-- Comment -->
                 <% if @article.comments.count != 0 %>
-                <h3><span class="badge badge-primary" style="font-size:22px;"><%= @article.comments.count %></span> Comments</h3>
+                <h3><i class="fa fa-comments"></i> <%= @article.comments.count %> Comments</h3>
                   <%= render @article.comments %>
                 <% else %>
                   <h3>No comments yet...</h3>
