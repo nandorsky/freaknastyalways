@@ -26,12 +26,12 @@
                 </p>
                 <!--<p><%= article.description %></p>-->
                 <p>
-                 <a href="#"><span class="glyphicon glyphicon-arrow-up"></span> 3</a> |
+                 <a href="#"><i class="fa fa-caret-up"></i>  3</a> |
                  <a href="#">
-                 <i class="fa fa-comments"></i> <%= Comment.where(:article_id => article ).count %></a> |
-                  <span class="glyphicon glyphicon-user"></span>
+                 <i class="fa fa-comments-o"></i> <%= Comment.where(:article_id => article ).count %></a> |
+                  <i class="fa fa-user"></i>
                   Username |
-                  <span class="glyphicon glyphicon-time"></span> 
+                  <i class="fa fa-clock-o"></i>
                   <%= time_ago_in_words(article.created_at) %> ago
                 </p>
                 <hr>

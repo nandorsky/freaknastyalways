@@ -24,12 +24,12 @@
 
                 <!-- Date/Time -->
                 <p> 
-                  <a href="#"><span class="glyphicon glyphicon-arrow-up"></span> 3</a> |
-                 <i class="fa fa-comments"></i>  
+                   <a href="#"><i class="fa fa-caret-up"></i>  3</a> |
+                 <i class="fa fa-comments-o"></i>  
                   <%= @article.comments.count %> |
-                  <span class="glyphicon glyphicon-user"></span>
+                  <i class="fa fa-user"></i>
                   <%= @article.user.email %> |
-                  <span class="glyphicon glyphicon-time"></span> 
+                   <i class="fa fa-clock-o"></i>
                   <%= time_ago_in_words(@article.created_at) %> ago
                 </p>
 
