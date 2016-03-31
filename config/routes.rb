@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
   
   
-
+  resources :admin, :only => [:index]
   get "about" => "pages#about"
 
   # The priority is based upon order of creation: first created -> highest priority.

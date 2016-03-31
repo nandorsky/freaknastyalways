@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :correct_user, only: [:edit, :update, :destroy]
+  #before_action :correct_user, only: [:edit, :update, :destroy]
 
 
   # GET /articles
@@ -49,7 +49,7 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1.json
   def destroy
     @article.destroy
-    redirect_to articles_url
+    redirect_to admin_index_path
   end
 
   private
