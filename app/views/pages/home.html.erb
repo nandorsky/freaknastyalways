@@ -12,7 +12,7 @@
           <div class="col-md-8">
                 <!-- Article Post -->
               <% @articles.each do |article| %>
-                <h2>
+                <h2 class="post-title">
                     <%= link_to article.title, article %>
                      <% if article.type_of_article == "question" %>
                       <i class="fa fa-question-circle"></i> 
@@ -22,7 +22,7 @@
                 </h2>
                
                 <p class="lead" style="margin-bottom:10px;">
-                  <a href="<%= article.url %>" style="font-size:16px;"><%= article.url %></a>
+                  <a href="<%= article.url %>" style="font-size:16px;" target="_blank"><%= article.url %></a>
                 </p>
                 <!--<p><%= article.description %></p>-->
                 <p>
@@ -30,7 +30,7 @@
                  <a href="#">
                  <i class="fa fa-comments-o"></i> <%= Comment.where(:article_id => article ).count %></a> |
                   <i class="fa fa-user"></i>
-                  Username |
+                  <%= article.user.email %> |
                   <i class="fa fa-clock-o"></i>
                   <%= time_ago_in_words(article.created_at) %> ago
                 </p>
