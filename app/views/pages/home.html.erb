@@ -28,7 +28,7 @@
                 <p>
                 <%= link_to '<i class="fa fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put %>
                  <%= article.score %> |
-                 <%= link_to '<i class="fa fa-comments-o"></i>'.html_safe, article_path(article), method: :put %> <%= article.number_of_comments %></a> |
+                 <%= link_to '<i class="fa fa-comments-o"></i>'.html_safe, article_path(article), method: :put %> <%= article.comments.count %></a> |
                   <i class="fa fa-user"></i>
                   <%= article.user.email %> |
                   <i class="fa fa-clock-o"></i>

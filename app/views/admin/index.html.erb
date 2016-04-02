@@ -1,20 +1,5 @@
- <!-- Bootstrap Core CSS -->
-    <link href="http://blackrockdigital.github.io/startbootstrap-sb-admin-2/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- MetisMenu CSS -->
-    <link href="http://blackrockdigital.github.io/startbootstrap-sb-admin-2/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
-
-    <!-- Timeline CSS -->
-    <link href="http://blackrockdigital.github.io/startbootstrap-sb-admin-2/dist/css/timeline.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="http://blackrockdigital.github.io/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css" rel="stylesheet">
-
-    <!-- Morris Charts CSS -->
-    <link href="http://blackrockdigital.github.io/startbootstrap-sb-admin-2/bower_components/morrisjs/morris.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="http://blackrockdigital.github.io/startbootstrap-sb-admin-2/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <%= stylesheet_link_tag    'custom_admin.min' %>
+        <%= stylesheet_link_tag    'timeline.min' %>
 
             <div class="row">
                 <div class="col-lg-12">
@@ -101,10 +86,7 @@
                                                     	<a href="<%= edit_article_path(article) %>" class="btn btn-primary btn-circle">
                                                     		<i class="fa fa-pencil"></i>
                             							</a>
-                            							<button type="button" class="btn btn-danger btn-xs btn-circle">
-                                                    		<i class="fa fa-times"></i>
-                            							</button>
-                            							<%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %>
+                                                        <%= link_to '<i class="fa fa-times"></i>'.html_safe, article_path(article), method: :delete, :class => "btn btn-danger btn-xs btn-circle", data: { confirm: 'Are you sure?' }  %>
                                                     </td>
                                                 </tr>
                                              <% end %>

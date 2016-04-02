@@ -14,7 +14,4 @@ class Article < ActiveRecord::Base
   	self.get_upvotes.size 
   end
 
-  def number_of_comments
-  	Article.last
-  end
 end
