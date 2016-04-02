@@ -13,12 +13,13 @@
                 <!-- Article Post -->
               <% @articles.each do |article| %>
                 <h2 class="post-title">
-                    <%= link_to article.title, article %>
+                    
                      <% if article.type_of_article == "question" %>
-                      <i class="fa fa-question-circle" style="font-size:14px;"></i> 
+                      <i class="fa fa-question-circle" style="font-size:16px;"></i> 
                     <% else %>
-                      <i class="fa fa-newspaper-o" style="font-size:14px;"></i> 
+                      <i class="fa fa-newspaper-o" style="font-size:16px;"></i> 
                     <% end %> 
+                    <%= link_to article.title, article %>
                 </h2>
                
                 <p class="lead" style="margin-bottom:10px;">
