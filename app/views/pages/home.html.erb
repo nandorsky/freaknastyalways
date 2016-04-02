@@ -26,9 +26,9 @@
                 </p>
                 <!--<p><%= article.description %></p>-->
                 <p>
-                 <a href="#"><i class="fa fa-caret-up"></i>  3</a> |
-                 <a href="#">
-                 <i class="fa fa-comments-o"></i> <%= Comment.where(:article_id => article ).count %></a> |
+                <%= link_to '<i class="fa fa-caret-up"></i>'.html_safe, like_article_path(article), method: :put %>
+                 <%= article.score %> |
+                 <%= link_to '<i class="fa fa-comments-o"></i>'.html_safe, article_path(article), method: :put %> <%= article.number_of_comments %></a> |
                   <i class="fa fa-user"></i>
                   <%= article.user.email %> |
                   <i class="fa fa-clock-o"></i>

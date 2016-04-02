@@ -24,7 +24,8 @@
 
                 <!-- Date/Time -->
                 <p> 
-                   <a href="#"><i class="fa fa-caret-up"></i>  3</a> |
+                   <%= link_to '<i class="fa fa-caret-up"></i>'.html_safe, like_article_path(@article), method: :put %>
+                    <%= @article.score %> |
                  <i class="fa fa-comments-o"></i>  
                   <%= @article.comments.count %> |
                   <i class="fa fa-user"></i>

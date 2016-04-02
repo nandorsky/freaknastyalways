@@ -134,6 +134,7 @@
 	                                    <div class="timeline-panel">
 	                                        <div class="timeline-heading">
 	                                            <h4 class="timeline-title"><%= article.title %></h4>
+                                                Votes: <%= article.score %>
 	                                            <p><small class="text-muted"><i class="fa fa-clock-o"></i> <%= time_ago_in_words(article.created_at) %> ago by <%= article.user.email %></small>
 	                                            </p>
 	                                        </div>

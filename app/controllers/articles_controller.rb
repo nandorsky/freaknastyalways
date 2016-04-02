@@ -15,6 +15,12 @@ class ArticlesController < ApplicationController
   def show
   end
 
+  def upvote
+    @article = Article.find(params[:id])
+    @article.upvote_by current_user
+    redirect_to root_path
+  end
+
   # GET /articles/new
   def new
     @article = current_user.articles.build

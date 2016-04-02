@@ -10,79 +10,26 @@ body {
   display: none;
 }
 
-.form-signin {
-  max-width: 330px;
-  padding: 15px;
-  margin: 0 auto;
-}
-.form-signin .form-signin-heading,
-.form-signin .checkbox {
-  margin-bottom: 10px;
-}
-.form-signin .checkbox {
-  font-weight: normal;
-}
-.form-signin .form-control {
-  position: relative;
-  height: auto;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 10px;
-  font-size: 16px;
-}
-.form-signin .form-control:focus {
-  z-index: 2;
-}
-.form-signin input[type="email"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-.form-signin input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-
 </style>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), :class => "form-signin") do |f| %>
-  <%= devise_error_messages! %>
-
-      
-        <h2 class="form-signin-heading">Sign Up</h2>
-         <%= f.label :email, :class => "sr-only" %>
-         <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Email Address" %>
-        
-        <%= f.label :password, autocomplete: "off", :class => "sr-only" %>
-        <% if @minimum_password_length %>
-        <!--<em>(<%= @minimum_password_length %> characters minimum)</em>-->
-        <% end %>
-        <%= f.password_field :password, :class => "form-control", autocomplete: "off", :placeholder => "Password" %>
-
-
-        <%= f.label :password_confirmation, :class => "sr-only"  %>
-        <%= f.password_field :password_confirmation, :class => "form-control", autocomplete: "off", :placeholder => "Password Confirmation" %>
-
-        <%= f.submit "Sign Up", :class => "btn btn-lg btn-primary btn-block" %>
-      <% end %>
-<%= render "devise/shared/links" %>
-
-<div class="row">
+      <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Please Sign Up</h3>
+                        <h3 class="panel-title">Sign Up</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :class => "form-signin") do |f| %>
+                            <%= devise_error_messages! %>
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                    <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Email Address" %>
+                                </div>
+                                 <div class="form-group">
+                                    <%= f.password_field :password, :class => "form-control", autocomplete: "off", :placeholder => "Password" %>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    <%= f.password_field :password_confirmation, :class => "form-control", autocomplete: "off", :placeholder => "Password Confirmation" %>
                                 </div>
                                 <div class="checkbox">
                                     <label>
@@ -90,10 +37,12 @@ body {
                                     </label>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>
+                                <%= f.submit "Sign Up", :class => "btn btn-lg btn-success btn-block", data: { disable_with: "Submitting..." }  %>
                             </fieldset>
-                        </form>
+                         <% end %>
                     </div>
                 </div>
+                <%= render "devise/shared/links" %>
             </div>
         </div>
+

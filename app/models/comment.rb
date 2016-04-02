@@ -5,4 +5,5 @@ class Comment < ActiveRecord::Base
   #Assocations
   belongs_to :user
   belongs_to :article
+  
 end

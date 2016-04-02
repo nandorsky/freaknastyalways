@@ -2,9 +2,11 @@ Rails.application.routes.draw do
   root "pages#home"
   devise_for :users
   resources :articles do
+     member do
+      put "like", to: "articles#upvote"
+    end
     resources :comments
   end
-  
   
   resources :admin, :only => [:index]
   get "about" => "pages#about"
