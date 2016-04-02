@@ -2,11 +2,11 @@
 	<div class="col-md-12">
 
 <%- if controller_name != 'sessions' %>
-  Already have an account? <%= link_to "Click here", new_session_path(resource_name) %> to login.<br />
+  Already have an account? <%= link_to "Log In", new_session_path(resource_name) %><br />
 <% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  Don't have an account? <%= link_to "Click here", new_registration_path(resource_name) %> to create an account.<br />
+  Don't have an account? <%= link_to "Sign Up", new_registration_path(resource_name) %><br />
 <% end -%>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>

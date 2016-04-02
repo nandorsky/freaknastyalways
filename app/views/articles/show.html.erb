@@ -8,13 +8,13 @@
                 <!-- Blog Post -->
 
                 <!-- Title -->
-                <h1><%= @article.title %>
+                <h2><%= @article.title %>
                 <% if @article.type_of_article == "question" %>
                   <i class="fa fa-question-circle"></i> 
                 <% else %>
                   <i class="fa fa-newspaper-o"></i> 
                 <% end %> 
-                </h1>
+                </h2>
                 <p> <a href="<%= @article.url %>" style="font-size:16px;"><%= @article.url %></a></p>
 
                 <!-- Description -->
