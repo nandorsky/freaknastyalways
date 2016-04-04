@@ -12,6 +12,11 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+#gem 'omniauth-twitter'
+
+
 # gem for votaing
 gem 'acts_as_votable'
 

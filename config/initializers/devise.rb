@@ -23,6 +23,10 @@ Devise.setup do |config|
   # available as additional gems.
   require 'devise/orm/active_record'
 
+  # facebook authentication
+  config.omniauth :facebook, "429121047291354", "1a34488ad13920b9ea42c17efa4435c3", :image_size => 'large'
+
+
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for

@@ -42,6 +42,9 @@ body {
                                 <!-- Change this to a button or input when using this as a form -->
                                 <%= f.submit "Sign Up", :class => "btn btn-lg btn-success btn-block", data: { disable_with: "Submitting..." }  %>
                             </fieldset>
+                            <div class="center">
+                                    <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+                              </div>
                          <% end %>
                     </div>
                 </div>
