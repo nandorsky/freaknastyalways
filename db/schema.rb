@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160404210548) do
+ActiveRecord::Schema.define(version: 20160417153918) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -35,6 +35,20 @@ ActiveRecord::Schema.define(version: 20160404210548) do
 
   add_index "comments", ["article_id"], name: "index_comments_on_article_id"
 
+  create_table "emails", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.date     "week_of"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -52,10 +66,13 @@ ActiveRecord::Schema.define(version: 20160404210548) do
     t.string   "provider"
     t.string   "uid"
     t.string   "image"
+    t.string   "user_name"
+    t.integer  "role_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["role_id"], name: "index_users_on_role_id"
 
   create_table "votes", force: :cascade do |t|
     t.integer  "votable_id"

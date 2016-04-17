@@ -9,6 +9,13 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.for(:sign_up) << :name
       devise_parameter_sanitizer.for(:account_update) << :name
       devise_parameter_sanitizer.for(:sign_up) << :mvp
+      # Fields for sign up
+        devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:user_name, :email, :password) }
+        # Fields for editing an existing account
+        devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:user_name, :email, :password, :current_password) }
     end
 
 end
+
+
+

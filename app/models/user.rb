@@ -4,12 +4,28 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, 
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
-         
+  
+  # Roles       
+  belongs_to :role
+  before_create :set_default_role
+
+  # Relationships for articles and comments
   has_many :articles,  dependent: :destroy
   has_many :comments,  dependent: :destroy
 
   acts_as_voter
 
+
+    # If user :has_one :role_assignment
+  def assign_role_after_sign_up  
+    create_role_assignment(:role_id => 1)
+  end
+
+  # If user :has_many :role_assignments
+  def assign_role_after_sign_up  
+    role_assignments.create(:role_id => 1)
+  end
+  
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email

@@ -16,6 +16,9 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 #gem 'omniauth-twitter'
 
+gem 'bootstrap-wysihtml5-rails'
+
+gem "cancan"
 
 # gem for votaing
 gem 'acts_as_votable'
