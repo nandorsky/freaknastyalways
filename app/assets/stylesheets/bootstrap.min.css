@@ -25,7 +25,7 @@ a {
 }
 a:active,a:hover {
 	outline:0;
-	 text-decoration: none;
+	text-decoration: none;
 }
 abbr[title] {
 	border-bottom:1px dotted
@@ -1039,7 +1039,7 @@ a {
 }
 a:focus,a:hover {
 	color:#23527c;
-	text-decoration:underline
+	text-decoration:none
 }
 a:focus {
 	outline:thin dotted;
@@ -4116,7 +4116,7 @@ select[multiple].input-group-sm>.form-control,select[multiple].input-group-sm>.i
 }
 .pager li>a:focus,.pager li>a:hover {
 	text-decoration:none;
-	background-color:#eee
+	background-color:#eee;
 }
 .pager .next>a,.pager .next>span {
 	float:right
@@ -4129,6 +4129,19 @@ select[multiple].input-group-sm>.form-control,select[multiple].input-group-sm>.i
 	cursor:not-allowed;
 	background-color:#fff
 }
+
+.pagination a {
+	font-size: 16px;
+}
+
+.pagination span {
+	font-size: 16px;
+}
+
+.pagination em {
+	font-size: 16px;
+}
+
 .label {
 	display:inline;
 	padding:.2em .6em .3em;

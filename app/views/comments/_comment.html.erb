@@ -1,13 +1,18 @@
 		
  			<div class="media" style="margin-top:30px;">
                     <a class="pull-left" href="#">
-                        <img class="media-object img-circle" height="40px" src="https://scontent-mia1-1.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/12573207_10205310443260307_8509741902091567578_n.jpg?oh=2c9794a671f818430342dba332e1f6f5&oe=5774B398" alt="">
+                        <% if !comment.user.image.blank? %>
+                            <img class="media-object img-circle" height="40px" src="<%= comment.user.image %>" alt="">
+                        <% else %>
+                            
+                            <%= image_tag ("avatar.jpg"), :class => "media-object img-circle", :height => "40px" %>
+                        <% end %>
                     </a>
                     <div class="media-body">
-                        <h4 class="media-heading"><%= comment.user.email %>
+                        <h4 class="media-heading"><%= comment.user.user_name %>
                             <small>About <%= time_ago_in_words(comment.created_at) %> ago</small>
                         </h4>
                         <%= simple_format(comment.comment)  %>
                     </div>
                 </div>
-         
+                        

@@ -32,7 +32,7 @@
                  <%= article.score %> |
                  <%= link_to '<i class="fa fa-comments-o"></i>'.html_safe, article_path(article) %> <%= article.comments.count %></a> |
                   <i class="fa fa-user"></i>
-                  <%= article.user.email %> |
+                  <%= article.user.user_name %> |
                   <i class="fa fa-clock-o"></i>
                   <%= time_ago_in_words(article.created_at) %> ago
                 </p>
@@ -41,13 +41,9 @@
 
                 <!-- Pager -->
                 <ul class="pager">
-                    <li class="previous">
-                        <a href="#">&larr; Older</a>
-                    </li>
-                    <li class="next">
-                        <a href="#">Newer &rarr;</a>
-                    </li>
+                    <%= will_paginate @articles %>
                 </ul>
+
 
             </div>
 

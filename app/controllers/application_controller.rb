@@ -6,14 +6,11 @@ class ApplicationController < ActionController::Base
   protected
   
   def configure_permitted_parameters
-      devise_parameter_sanitizer.for(:sign_up) << :name
-      devise_parameter_sanitizer.for(:account_update) << :name
-      devise_parameter_sanitizer.for(:sign_up) << :mvp
       # Fields for sign up
-        devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:user_name, :email, :password) }
-        # Fields for editing an existing account
-        devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:user_name, :email, :password, :current_password) }
-    end
+      devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:user_name, :email, :password, :role) }
+      # Fields for editing an existing account
+      devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:user_name, :email, :password, :current_password, :role) }
+  end
 
 end
 

@@ -18,7 +18,11 @@ gem 'omniauth-facebook'
 
 gem 'bootstrap-wysihtml5-rails'
 
-gem "cancan"
+#roles
+gem 'cancan'
+
+#paginate
+gem 'will_paginate', '~> 3.1.0'
 
 # gem for votaing
 gem 'acts_as_votable'

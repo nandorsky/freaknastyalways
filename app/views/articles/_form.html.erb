@@ -75,13 +75,13 @@ $(document).ready(function(){
                 <%= f.label :title, "Question" %><br>
               </div>
 
-                <%= f.text_field :title, :class => "form-control", :placeholder => "Title of the Article" %>
+                <%= f.text_field :title, :class => "form-control", :placeholder => "Title of the Article", :required => true %>
               </div>
 
           <div class="article option">
               <div class="form-group">
                 <%= f.label :url, "URL", :class=> "hidden" %><br>
-                <%= f.text_field :url, :class => "form-control",  :placeholder => "URL" %>
+                <%= f.text_field :url, :class => "form-control",  :placeholder => "URL", :required => true %>
               </div>
           </div>
 

@@ -15,8 +15,13 @@ class User < ActiveRecord::Base
 
   acts_as_voter
 
+  #default role
+  private
+  def set_default_role
+    self.role ||= Role.find_by_name('user')
+  end
 
-    # If user :has_one :role_assignment
+  # If user :has_one :role_assignment
   def assign_role_after_sign_up  
     create_role_assignment(:role_id => 1)
   end

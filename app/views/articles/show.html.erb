@@ -29,7 +29,7 @@
                  <i class="fa fa-comments-o"></i>  
                   <%= @article.comments.count %> |
                   <i class="fa fa-user"></i>
-                  <%= @article.user.email %> |
+                  <%= @article.user.user_name %> |
                    <i class="fa fa-clock-o"></i>
                   <%= time_ago_in_words(@article.created_at) %> ago
                 </p>
